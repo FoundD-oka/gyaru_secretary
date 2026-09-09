@@ -15,6 +15,31 @@ voice = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(voice)
 
 class VoiceTests(unittest.TestCase):
+    def test_text_chat_skips_audio_generation_and_keeps_context(self):
+        answer = '確認できたよ。' * 150
+        result = {'candidates': [{'content': {'parts': [{'text': answer}]}}]}
+        with patch.object(voice, 'api', return_value=result) as api, patch.object(voice, 'speak') as speak:
+            response = voice.chat('続けて', [{'role': 'user', 'text': '前の相談'}, {'role': 'model', 'text': '前の返答'}], audio=False)
+            self.assertEqual(response, {'text': answer})
+            speak.assert_not_called()
+            body = api.call_args.args[1]
+            self.assertEqual(body['contents'][0]['parts'][0]['text'], '前の相談')
+            self.assertIn('テキストチャット', body['systemInstruction']['parts'][0]['text'])
+
+    def test_http_text_chat_does_not_request_tts(self):
+        server = voice.ThreadingHTTPServer(('127.0.0.1', 0), voice.Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
+        url = 'http://127.0.0.1:' + str(server.server_port) + '/chat'
+        result = {'candidates': [{'content': {'parts': [{'text': '文字で返すよ。'}]}}]}
+        try:
+            with patch.object(voice, 'api', return_value=result), patch.object(voice, 'speak') as speak:
+                request = urllib.request.Request(url, data=json.dumps({'text': 'こんにちは', 'audio': False}).encode(), headers={'Authorization': 'Bearer ' + voice.TOKEN})
+                with urllib.request.urlopen(request) as response:
+                    self.assertEqual(json.load(response), {'text': '文字で返すよ。'})
+                speak.assert_not_called()
+        finally:
+            server.shutdown(); server.server_close(); thread.join()
+
     def test_pcm_rate_is_preserved(self):
         pcm = b'\x00\x00' * 160
         result = {'candidates': [{'content': {'parts': [{'inlineData': {
@@ -44,7 +69,8 @@ class VoiceTests(unittest.TestCase):
             cases = [({}, b'{"text":"hi"}', 403),
                      ({'Authorization': 'Bearer '+voice.TOKEN, 'Origin':'https://example.com'}, b'{"text":"hi"}', 403),
                      ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":""}', 400),
-                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'[]', 400)]
+                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'[]', 400),
+                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":"hi","audio":"false"}', 400)]
             with patch.object(voice, 'chat') as chat:
                 for headers, body, expected in cases:
                     req = urllib.request.Request(url+'/chat', data=body, headers=headers)

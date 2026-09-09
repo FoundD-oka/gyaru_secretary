@@ -78,21 +78,24 @@ def speak(text):
         wav.writeframes(raw)
     return output.getvalue()
 
-def chat(text, history):
+def chat(text, history, audio=True):
     contents = []
     for entry in history[-12:]:
         if isinstance(entry, dict) and entry.get('role') in ('user', 'model') and isinstance(entry.get('text'), str):
             contents.append({'role': entry['role'], 'parts': [{'text': entry['text'][:2000]}]})
     contents.append({'role': 'user', 'parts': [{'text': text}]})
+    persona = PERSONA if audio else PERSONA.replace('音声会話なので返答は原則1〜3文、150文字以内。', 'テキストチャットです。必要な詳しさで、読みやすく具体的に返答する。').replace('今は会話と画面のリアクションだけが使える。', '今はテキスト会話だけが使える。音声と画面のリアクションは休止中。')
     result = api(os.environ.get('GYARU_CHAT_MODEL', 'gemini-2.5-flash'), {
-        'systemInstruction': {'parts': [{'text': PERSONA}]}, 'contents': contents,
+        'systemInstruction': {'parts': [{'text': persona}]}, 'contents': contents,
         'generationConfig': {'maxOutputTokens': 1024, 'thinkingConfig': {'thinkingBudget': 0}}
     })
     answer = ''.join(p.get('text', '') for p in parts(result) if not p.get('thought')).strip()
     if not answer:
         raise RuntimeError('返答を取得できませんでした。')
-    answer = answer[:800]
+    answer = answer[:800] if audio else answer
     response = {'text': answer}
+    if not audio:
+        return response
     try:
         response['audio'] = base64.b64encode(speak(answer)).decode()
     except RuntimeError as error:
@@ -137,14 +140,17 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError()
             text = body.get('text', '')
             history = body.get('history', [])
+            audio = body.get('audio', True)
             if not isinstance(text, str) or not text.strip() or len(text) > 2000 or not isinstance(history, list):
+                raise ValueError()
+            if not isinstance(audio, bool):
                 raise ValueError()
         except (ValueError, TypeError):
             return self.reply(400, {'error': 'Invalid request'})
         if not BUSY.acquire(blocking=False):
             return self.reply(429, {'error': '返答を準備中です。'})
         try:
-            self.reply(200, chat(text.strip(), history))
+            self.reply(200, chat(text.strip(), history, audio=audio))
         except RuntimeError as error:
             self.reply(502, {'error': str(error)})
         except Exception:
