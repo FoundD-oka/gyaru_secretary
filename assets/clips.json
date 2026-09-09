@@ -1,0 +1,7 @@
+{
+  "idle": {"file": "idle-loop.mp4", "start": 0, "end": 4.583333, "loop": true},
+  "phone_pickup": {"file": "phone.mp4", "start": 0, "end": 3.6, "loop": false},
+  "phone_loop": {"file": "phone-loop.mp4", "start": 0, "end": 7.166667, "loop": true},
+  "phone_end": {"file": "phone.mp4", "start": 10.8, "end": 15, "loop": false},
+  "playful": {"file": "playful.mp4", "start": 0, "end": 15, "loop": false}
+}

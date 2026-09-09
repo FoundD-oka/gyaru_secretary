@@ -1,0 +1,42 @@
+{
+  "idle-loop.mp4": {
+    "bytes": 1203478,
+    "sha256": "ae5d6e29bc837c674572c02de918c08ad6270da4a814093064f81588083aac1d",
+    "decode": "passed"
+  },
+  "idle.mp4": {
+    "bytes": 7312737,
+    "sha256": "38233430266fd00227dabf1dd1d2e20499694dd90d53c93d8390495d2df51806",
+    "decode": "passed"
+  },
+  "phone-loop.mp4": {
+    "bytes": 1311698,
+    "sha256": "184e05dfed0975e9407a18b2d0e3fa83b6faafda2605d0a6fda82a3379e03174",
+    "decode": "passed"
+  },
+  "phone.mp4": {
+    "bytes": 18815212,
+    "sha256": "42af03169f5f8aa83683d14bf790cd750ecc5d15e4a744efc45841feaced145a",
+    "decode": "passed"
+  },
+  "playful.mp4": {
+    "bytes": 24791464,
+    "sha256": "07ecd58c73b8815067cc4f66d7ba825e630af0923e73b21808967cc9714d1512",
+    "decode": "passed"
+  },
+  "conversation-test.wav": {
+    "bytes": 296250,
+    "sha256": "99be209f18508753a58cb070778e77243f071238e69028e07c71e91c87fe9f9f",
+    "decode": "audio received"
+  },
+  "voice-sample.wav": {
+    "bytes": 313530,
+    "sha256": "cded39a06aa196864b395e651bede3edc12ee4b805a8fe5bc6cd48b6ad8746d9",
+    "decode": "passed"
+  },
+  "phone-voice-demo.mp4": {
+    "bytes": 3326861,
+    "sha256": "7294143589ddd2273835aaaaf5b344a26e69af116d0237c8d09bda46b61a0315",
+    "decode": "passed"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-09",
+  "master": {"tool": "built-in image_gen", "prompt": "master-prompt.txt", "file": "assets/master.png"},
+  "videos": [
+    {"role": "idle", "model": "Seedance 2.5", "resolution": "1080p", "seconds": 5, "asset_id": "4e26d6d5-791f-41c3-8f95-24377956c326", "url": "https://higgsfield.ai/asset/all/4e26d6d5-791f-41c3-8f95-24377956c326", "file": "assets/idle.mp4"},
+    {"role": "phone", "model": "Seedance 2.5", "resolution": "1080p", "seconds": 15, "asset_id": "5377f440-4715-41f3-aff0-0240a8b96f9c", "url": "https://higgsfield.ai/asset/all/5377f440-4715-41f3-aff0-0240a8b96f9c", "file": "assets/phone.mp4"},
+    {"role": "playful", "model": "Seedance 2.5", "resolution": "1080p", "seconds": 15, "asset_id": "517e3e82-db8e-4729-b611-198a89d9fe91", "url": "https://higgsfield.ai/asset/all/517e3e82-db8e-4729-b611-198a89d9fe91", "file": "assets/playful.mp4"}
+  ],
+  "audio": {"model": "gemini-2.5-flash-preview-tts", "voice": "Kore", "sample": "おつかれ！ 今日も頑張ってんじゃん。困ったらうちに言って？ 一緒に片づけよ。"},
+  "publicly_published": false
+}
