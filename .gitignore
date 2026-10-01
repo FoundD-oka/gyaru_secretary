@@ -1,8 +1,47 @@
+# Local build and caches
 build/
-.runtime.json
 __pycache__/
-*.log
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.swiftpm/
+DerivedData/
+
+# Secrets and machine-local runtime
 .env
+.env.*
+.runtime.json
+*.log
 
-
+# OS / editor
 .DS_Store
+xcuserdata/
+*.xcuserstate
+
+# Kling source dumps. Runtime copies live in assets/*.mp4
+/assets/originals/*
+!/assets/originals/README.md
+
+# Keep only current idle, typing, and outfit clips.
+/assets/*.mp4
+/assets/*.wav
+!/assets/idle-shiro-v2-coffee.mp4
+!/assets/idle-shiro-v2-mouse.mp4
+!/assets/idle-shiro-v2-phone.mp4
+!/assets/typing-shiro-v2-annoyed.mp4
+!/assets/typing-shiro-v2-playful.mp4
+!/assets/outfit-empty.mp4
+!/assets/outfit-exit.mp4
+!/assets/outfit-idle.mp4
+!/assets/outfit-note.mp4
+!/assets/outfit-return.mp4
+!/assets/outfit-typing.mp4
+!/assets/outfit-work.mp4
+
+# Production stills and joined previews. Text records stay tracked.
+docs/**/review/*.jpg
+docs/**/preview.mp4
+docs/**/*-contact.jpg
+docs/**/overview.jpg
+docs/**/references/*.png

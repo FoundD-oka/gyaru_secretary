@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-10",
+  "provider": "Higgsfield",
+  "model": "Kling 3.0",
+  "base_image": "assets/base_shiro_gyaru.png",
+  "base_sha256": "e43ed697f1587c87ac9cc25b935ac9c96320acf8051304ef06eb14593d00c315",
+  "start_upload_id": "332ba7d8-287e-4e39-a6f0-f6fa8c44e6d5",
+  "end_upload_id": "332ba7d8-287e-4e39-a6f0-f6fa8c44e6d5",
+  "settings": {
+    "duration_seconds": 15,
+    "resolution_ui": "1080p",
+    "multi_shot": false,
+    "enhance": false,
+    "audio": false,
+    "credits_displayed_per_generation": 22.5
+  },
+  "clips": [
+    {
+      "role": "coffee",
+      "asset_id": "ccd26006-f4fb-4bd3-b65f-74d4c6620d93",
+      "result_url": "https://higgsfield.ai/asset/all/ccd26006-f4fb-4bd3-b65f-74d4c6620d93",
+      "original": "assets/originals/shiro/coffee.mp4",
+      "runtime_file": "assets/idle-shiro-coffee.mp4",
+      "original_sha256": "dc1c400ee9ab94be8b5c71301fd7135a68e4cb24e8e3908aeca17d51a3ed3fa0"
+    },
+    {
+      "role": "phone",
+      "asset_id": "0ba31516-7650-480f-b4e6-a06f914ce74b",
+      "result_url": "https://higgsfield.ai/asset/all/0ba31516-7650-480f-b4e6-a06f914ce74b",
+      "original": "assets/originals/shiro/phone.mp4",
+      "runtime_file": "assets/idle-shiro-phone.mp4",
+      "original_sha256": "fdd67ea193d70ebe0a83a9318467dcf7a29bf07eb147c5a442678cb7595abb33"
+    },
+    {
+      "role": "wave",
+      "asset_id": "b81e151e-1f08-45c3-a941-a9b4357c88ee",
+      "result_url": "https://higgsfield.ai/asset/all/b81e151e-1f08-45c3-a941-a9b4357c88ee",
+      "original": "assets/originals/shiro/wave.mp4",
+      "runtime_file": "assets/idle-shiro-wave.mp4",
+      "original_sha256": "89b8f70c9f2b13bae74f894a3532cfc704ec93ada3990eea7509e9c31bc05fe5"
+    }
+  ],
+  "processing": "Video stream copied without re-encoding; audio excluded; MP4 faststart enabled. No reversal, crossfade or synthetic loop repair.",
+  "actual_video": {
+    "width": 1920,
+    "height": 1076,
+    "fps": 24,
+    "frames": 361,
+    "duration_seconds": 15.041667
+  },
+  "publicly_published": false
+}

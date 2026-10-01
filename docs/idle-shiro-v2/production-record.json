@@ -1,0 +1,63 @@
+{
+  "date": "2026-09-10",
+  "revision": 2,
+  "provider": "Higgsfield",
+  "model": "Kling 3.0",
+  "base_image": "assets/base_shiro_gyaru.png",
+  "base_sha256": "e43ed697f1587c87ac9cc25b935ac9c96320acf8051304ef06eb14593d00c315",
+  "start_upload_id": "332ba7d8-287e-4e39-a6f0-f6fa8c44e6d5",
+  "end_upload_id": "332ba7d8-287e-4e39-a6f0-f6fa8c44e6d5",
+  "settings": {
+    "duration_seconds": 15,
+    "resolution_ui": "1080p",
+    "multi_shot": false,
+    "enhance": false,
+    "audio": false,
+    "credits_displayed_per_generation": 22.5
+  },
+  "clips": [
+    {
+      "role": "coffee",
+      "asset_id": "839d6ff7-4bda-4994-b324-42f5445bce71",
+      "result_url": "https://higgsfield.ai/asset/all/839d6ff7-4bda-4994-b324-42f5445bce71",
+      "original": "assets/originals/shiro-v2/coffee.mp4",
+      "runtime_file": "assets/idle-shiro-v2-coffee.mp4",
+      "original_sha256": "0351beaa2fe59542c91553d9cbe580aea076d83c84d4a37387f6a3cb0cde4560"
+    },
+    {
+      "role": "phone",
+      "asset_id": "abdd89fc-e7a9-4e31-a49c-33f8e5ce026e",
+      "result_url": "https://higgsfield.ai/asset/all/abdd89fc-e7a9-4e31-a49c-33f8e5ce026e",
+      "original": "assets/originals/shiro-v2/phone.mp4",
+      "runtime_file": "assets/idle-shiro-v2-phone.mp4",
+      "original_sha256": "3d9c7650c7e1e547b93234d6b9ac14ddd573e93a880f47e22f2aeaee2d0b6489"
+    },
+    {
+      "role": "mouse",
+      "asset_id": "b6557733-47b8-4ecd-9fd5-adcaa1ddfdc9",
+      "result_url": "https://higgsfield.ai/asset/all/b6557733-47b8-4ecd-9fd5-adcaa1ddfdc9",
+      "original": "assets/originals/shiro-v2/mouse.mp4",
+      "runtime_file": "assets/idle-shiro-v2-mouse.mp4",
+      "original_sha256": "8ea38cb35a68e8b5984d3cad2f73ca8c43a9c038c8e242fa056ae7364b25a74a"
+    },
+    {
+      "role": "typing-playful",
+      "asset_id": "1891d4e8-377c-4b5a-a3fb-c1b7b1615189",
+      "result_url": "https://higgsfield.ai/asset/all/1891d4e8-377c-4b5a-a3fb-c1b7b1615189",
+      "original": "assets/originals/shiro-v2/typing-playful.mp4",
+      "runtime_file": "assets/typing-shiro-v2-playful.mp4",
+      "original_sha256": "ab4d1ea82ed307920c068366578208e38e252a2cfa192d5c127ae924e2d7cd85"
+    },
+    {
+      "role": "typing-annoyed",
+      "asset_id": "23c837e4-e1be-4816-b645-49607ef7aceb",
+      "result_url": "https://higgsfield.ai/asset/all/23c837e4-e1be-4816-b645-49607ef7aceb",
+      "original": "assets/originals/shiro-v2/typing-annoyed.mp4",
+      "runtime_file": "assets/typing-shiro-v2-annoyed.mp4",
+      "original_sha256": "67a77ef6c46b5ffeda2a08f63b7868a83d80b9412d329a6e3894decd399a1dcb"
+    }
+  ],
+  "processing": "Original video stream copied without re-encoding; audio excluded; MP4 faststart enabled. No reversal or synthetic loop repair.",
+  "publicly_published": false,
+  "typing_connected_to_send": false
+}

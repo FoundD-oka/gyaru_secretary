@@ -1,0 +1,153 @@
+{
+  "clips": [
+    {
+      "file": "outfit-exit.mp4",
+      "duration": 10.041667,
+      "playback_end": 10,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "10dcc0ab9dc5e642a6d1760fa899caef2fb32a71b302fb41cb6a52c6e84e3c21",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-empty.mp4",
+      "duration": 7.0,
+      "playback_end": 7,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "e0fc95d38506c140465429ec6eeba110d74686a6e6b8d4b324fd8082f1859e65",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-return.mp4",
+      "duration": 10.041667,
+      "playback_end": 10,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "9defd8796dbf7f2067adcd464a14152ecce0521836f2690000674ad9b350f4b4",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-note.mp4",
+      "duration": 15.041667,
+      "playback_end": 15,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "d318149554ad41e3df8f38d1155cf254a32082a5e3f88374027bd1f463793c68",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-work.mp4",
+      "duration": 15.041667,
+      "playback_end": 15,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "c50efd671b5a62738c7387c4606b41f84ce90524bac5299fef87d9cb5be665eb",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-idle.mp4",
+      "duration": 15.041667,
+      "playback_end": 15,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "17a014da8be9b099b61b127a928941a7717f2b8dd2537286733bd3fc5eade69f",
+      "decode": "passed"
+    },
+    {
+      "file": "outfit-typing.mp4",
+      "duration": 15.041667,
+      "playback_end": 15,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "a2c814cbee5fff181991d281d1cbbc5bf7b79456efab527cb68ba1d6c25fd40b",
+      "decode": "passed"
+    }
+  ],
+  "joins": [
+    {
+      "from": "outfit-exit.mp4",
+      "to": "outfit-empty.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.9833
+    },
+    {
+      "from": "outfit-empty.mp4",
+      "to": "outfit-return.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.8154
+    },
+    {
+      "from": "outfit-return.mp4",
+      "to": "outfit-note.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.3857
+    },
+    {
+      "from": "outfit-note.mp4",
+      "to": "outfit-work.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.6563
+    },
+    {
+      "from": "outfit-work.mp4",
+      "to": "outfit-idle.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.0133
+    },
+    {
+      "from": "outfit-idle.mp4",
+      "to": "outfit-idle.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9983
+    },
+    {
+      "from": "outfit-idle.mp4",
+      "to": "outfit-typing.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.0112
+    },
+    {
+      "from": "outfit-typing.mp4",
+      "to": "outfit-idle.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.0494
+    },
+    {
+      "from": "outfit-typing.mp4",
+      "to": "outfit-typing.mp4",
+      "mean_absolute_pixel_difference_0_255": 1.0497
+    },
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "outfit-exit.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8551
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "outfit-exit.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9166
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "outfit-exit.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.941
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "outfit-exit.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9778
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "outfit-exit.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8367
+    }
+  ]
+}

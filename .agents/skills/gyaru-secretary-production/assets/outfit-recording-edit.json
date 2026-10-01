@@ -1,0 +1,17 @@
+{
+  "description": "2026-09-11 お着替えモード.mov のユーザー承認済み編集。別録画では座標と時刻を再確認する。",
+  "resolution": [4096, 2304],
+  "fps": 60,
+  "bitrate": "32M",
+  "blur_regions": [
+    {"x": 0, "y": 60, "width": 600, "height": 864, "sigma": 8, "steps": 3}
+  ],
+  "zoom": {
+    "factor": 2,
+    "crop_origin": [2048, 1050],
+    "windows": [
+      {"in": [0.9, 1.65], "out": [3.85, 4.6]},
+      {"in": [73.85, 74.6]}
+    ]
+  }
+}

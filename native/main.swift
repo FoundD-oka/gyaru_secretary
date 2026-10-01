@@ -6,6 +6,7 @@ final class App: NSObject, NSApplicationDelegate {
     var window: NSWindow!
     var panel: NSWindow!
     var stage: Stage!
+    var outfitPlayback: OutfitPlayback!
     let store = ChatStore()
     var desktop = false
     var originalFrame = NSRect.zero
@@ -28,14 +29,45 @@ final class App: NSObject, NSApplicationDelegate {
         NSApp.mainMenu = menu
         let root = Bundle.main.resourceURL!
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 960, height: 540), styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
-        window.title = "ギャル秘書 — アイドリング"
+        window.title = "ギャル秘書 — 映像"
         window.isReleasedWhenClosed = false
         window.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         stage = Stage(frame: window.contentView!.bounds); stage.autoresizingMask = [.width, .height]; window.contentView = stage
-        if let image = NSImage(contentsOf: root.appendingPathComponent("assets/master.png")) { stage.still.contents = image.cgImage(forProposedRect: nil, context: nil, hints: nil) }
+        if let image = NSImage(contentsOf: root.appendingPathComponent("assets/base_shiro_gyaru.png")) { stage.still.contents = image.cgImage(forProposedRect: nil, context: nil, hints: nil) }
         window.center(); originalFrame = window.frame
-        if let data = try? Data(contentsOf: root.appendingPathComponent("assets/clips.json")), let clips = try? JSONDecoder().decode([String: Clip].self, from: data) {
-            stage.show(clips["idle"], root: root.appendingPathComponent("assets"))
+        let assetRoot = root.appendingPathComponent("assets")
+        func readClips(_ filename: String) -> [Clip] {
+            guard let data = try? Data(contentsOf: assetRoot.appendingPathComponent(filename)),
+                  let clips = try? JSONDecoder().decode([Clip].self, from: data) else { return [] }
+            return clips
+        }
+        var idleClips = readClips("idle-variants.json")
+        if idleClips.isEmpty,
+           let data = try? Data(contentsOf: assetRoot.appendingPathComponent("clips.json")),
+           let clips = try? JSONDecoder().decode([String: Clip].self, from: data), let idle = clips["idle"] {
+            idleClips = [idle]
+        }
+        stage.showIdle(idleClips, root: assetRoot)
+        outfitPlayback = OutfitPlayback(stage: stage, root: assetRoot, idle: idleClips,
+                                       typing: readClips("typing-variants.json"), outfit: OutfitManifest.load(root: assetRoot))
+        store.prepareMessageMotion = { [weak self] in self?.outfitPlayback.prepare($0) }
+        store.beginReplyMotion = { [weak self] in self?.outfitPlayback.beginReply() }
+        store.finishReplyMotion = { [weak self] done in
+            guard let playback = self?.outfitPlayback else { done(); return }
+            playback.finishReply(done)
+        }
+        store.cancelReplyMotion = { [weak self] in self?.outfitPlayback.cancelReply() }
+        store.resetSessionMotion = { [weak self] in self?.outfitPlayback.reset() }
+        store.outfitContext = { [weak self] in
+            guard let wardrobe = self?.outfitPlayback.wardrobe else { return nil }
+            switch wardrobe {
+            case .original: return nil
+            case .changing: return "changing"
+            case .changed: return "changed"
+            }
+        }
+        outfitPlayback.onPlaybackError = { [weak store] in
+            store?.messages.append(ChatMessage(role: .error, text: "着替え動画が止まったので、元の衣装に戻したよ。"))
         }
         panel = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 460, height: 690), styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
         panel.title = "ギャル秘書 — チャット"; panel.titleVisibility = .hidden; panel.titlebarAppearsTransparent = true

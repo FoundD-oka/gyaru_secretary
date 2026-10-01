@@ -58,6 +58,68 @@ final class Stub: URLProtocol {
         store.newChat(); precondition(store.messages.isEmpty && store.draft.isEmpty)
         store.draft = "新しい会話"; store.send(); wait(store)
         precondition((Stub.received.last?["history"] as? [[String: String]])?.isEmpty == true)
+        store.newChat()
+        var motionStarts = 0
+        var motionCancels = 0
+        var release: (() -> Void)?
+        store.beginReplyMotion = { motionStarts += 1 }
+        store.finishReplyMotion = { release = $0 }
+        store.cancelReplyMotion = { motionCancels += 1 }
+        store.draft = "速い返答"; store.send()
+        let deadline = Date().addingTimeInterval(5)
+        while release == nil && Date() < deadline { RunLoop.main.run(until: Date().addingTimeInterval(0.01)) }
+        precondition(release != nil && motionStarts == 1)
+        precondition(store.busy && store.messages.count == 1 && !store.canSend, "Received answers stay hidden until the motion boundary")
+        let firstRelease = release!; firstRelease(); firstRelease()
+        precondition(!store.busy && store.messages.count == 2, "A boundary can publish only once")
+        release = nil
+        store.draft = "保留中にキャンセル"; store.send()
+        let cancelDeadline = Date().addingTimeInterval(5)
+        while release == nil && Date() < cancelDeadline { RunLoop.main.run(until: Date().addingTimeInterval(0.01)) }
+        precondition(release != nil)
+        let staleRelease = release!
+        store.cancel(); staleRelease()
+        precondition(!store.busy && store.messages.last?.role == .error && motionCancels > 0)
+        release = nil; store.retry(); staleRelease()
+        precondition(store.busy && store.messages.last?.role == .user, "An old animation callback cannot release a retry")
+        let retryDeadline = Date().addingTimeInterval(5)
+        while release == nil && Date() < retryDeadline { RunLoop.main.run(until: Date().addingTimeInterval(0.01)) }
+        precondition(release != nil)
+        let resetRelease = release!
+        store.newChat(); resetRelease()
+        precondition(store.messages.isEmpty && !store.busy, "Reset discards buffered responses")
+        Stub.responseCode = 502; release = nil
+        store.draft = "映像待ち中のエラー"; store.send(); wait(store)
+        precondition(store.messages.last?.role == .error && release == nil, "Errors bypass motion waiting")
+        store.newChat()
+        store.beginReplyMotion = {}; store.finishReplyMotion = { $0() }
+        var prepared: [String] = []
+        var resets = 0
+        store.prepareMessageMotion = { text in
+            prepared.append(text)
+            return text.contains("着替えてきてよ") ? "動画が未準備" : nil
+        }
+        store.resetSessionMotion = { resets += 1 }
+        let beforeRequest = Stub.received.count
+        store.draft = "着替えてきてよ"
+        precondition(prepared.isEmpty, "Draft edits never trigger a performance")
+        store.send()
+        precondition(prepared == ["着替えてきてよ"] && !store.busy && store.messages.last?.role == .error)
+        precondition(Stub.received.count == beforeRequest, "Unavailable outfit media must not be sent as a claimed capability")
+        store.retry()
+        precondition(prepared.count == 2 && Stub.received.count == beforeRequest)
+        store.newChat()
+        precondition(resets == 1 && store.messages.isEmpty)
+        Stub.responseCode = 200
+        store.prepareMessageMotion = { _ in nil }; store.outfitContext = { "changing" }
+        store.draft = "着替えてきてよ"; store.send(); wait(store)
+        precondition(Stub.received.last?["outfit"] as? String == "changing")
+        store.outfitContext = { "changed" }; store.draft = "その服で続けて"; store.send(); wait(store)
+        precondition(Stub.received.last?["outfit"] as? String == "changed")
+        store.resetSessionMotion = { store.outfitContext = { nil } }; store.newChat()
+        store.draft = "リセット後"; store.send(); wait(store)
+        precondition(Stub.received.last?["outfit"] == nil && Stub.received.last?["audio"] as? Bool == false)
+        print("ChatStore: response buffering, single publication, stale callbacks, retry, reset and error bypass passed.")
         let unavailable = ChatStore(runtimeURL: temp.appendingPathExtension("missing"))
         unavailable.draft = "接続前の入力"; unavailable.send()
         precondition(unavailable.messages.last?.role == .error && !unavailable.busy)

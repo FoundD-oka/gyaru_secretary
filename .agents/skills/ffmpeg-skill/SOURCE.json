@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/kajisho5/ffmpeg-skill",
+  "requested_url": "https://github.com/kajisho5/ffmpeg-skill?v=0.12.0",
+  "version": "0.12.0",
+  "ref": "v0.12.0",
+  "commit": "81fd69e9eda87cd894298f671c2c4da8073cd2a4",
+  "installed_scope": "project .agents/skills/ffmpeg-skill",
+  "license": "MIT, upstream LICENSE retained",
+  "local_changes": [
+    "Quote the existing description scalar to fix invalid YAML frontmatter without changing its text.",
+    "Keep official installer payload plus LICENSE, README and referenced docs; omit repository development configuration and unrelated nested skills."
+  ],
+  "omitted_repository_entries": [
+    ".claude",
+    ".github",
+    ".gitignore",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "assets",
+    "bin",
+    "evals",
+    "examples",
+    "tests"
+  ],
+  "mcp_registered": false,
+  "verification": {
+    "skill_validation": "passed",
+    "payload_matches_pinned_commit": true,
+    "doctor_version": "0.12.0",
+    "doctor_ok": true,
+    "tools_usable": 28,
+    "optional_missing": [
+      "external:whisper"
+    ],
+    "default_font": {
+      "default_font": "DejaVu Sans",
+      "detail": "fc-match substitutes 'Noto Sans' for 'DejaVu Sans' -- 'DejaVu Sans' is not installed",
+      "status": "missing"
+    },
+    "smoke_test": "probe real edited recording; dry-run and execute 2-second cut; probe, full decode and inspect extracted PNG; passed",
+    "scope": "basic smoke checks and runtime code inspection, not exhaustive testing of all tools"
+  }
+}

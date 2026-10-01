@@ -40,7 +40,7 @@ struct ChatView: View {
         .alert("新しいチャットを始める？", isPresented: $confirmReset) {
             Button("キャンセル", role: .cancel) {}
             Button("新しく始める", role: .destructive) { store.newChat() }
-        } message: { Text("この画面の会話履歴が消去されます。") }
+        } message: { Text("この画面の会話履歴を消去し、衣装と動画を最初の状態に戻します。") }
         .sheet(isPresented: $showInfo) { info }
     }
     private var header: some View {
@@ -89,7 +89,7 @@ struct ChatView: View {
                     if store.busy {
                         HStack(spacing: 9) {
                             ProgressView().controlSize(.small).scaleEffect(0.75)
-                            Text("考えてるよ…").font(.system(size: 12)).foregroundColor(muted)
+                            Text("返答を準備してるよ…").font(.system(size: 12)).foregroundColor(muted)
                         }.padding(.leading, 2)
                     }
                     Color.clear.frame(height: 1).id("bottom")
@@ -157,7 +157,7 @@ struct ChatView: View {
             Text("ギャル秘書").font(.system(size: 22, weight: .semibold))
             Text("会話に集中する、デスクトップの相棒。")
             Divider()
-            Text("会話相手：Gemini\n動画：アイドリングのみ\n音声対話・リアクション：保留中")
+            Text("会話相手：Gemini\n動画：アイドリング・送信時のキー入力\n返答は入力動画の末尾で表示\n音声対話・その他のリアクション：保留中")
                 .font(.system(size: 13)).lineSpacing(7)
             Text("会話履歴はアプリを終了すると消えます。返答時には直近の6往復を参照します。予定の閲覧・検索・ファイル操作は未接続です。")
                 .font(.system(size: 12)).foregroundColor(muted).fixedSize(horizontal: false, vertical: true)

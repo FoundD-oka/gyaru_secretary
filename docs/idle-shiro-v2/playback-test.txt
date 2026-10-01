@@ -1,0 +1,6 @@
+0.00s idle-shiro-v2-phone.mp4
+15.28s idle-shiro-v2-coffee.mp4
+30.30s idle-shiro-v2-phone.mp4
+45.32s idle-shiro-v2-coffee.mp4
+PASS: 48-second real-time playback and natural queue transitions
+PASS: random selection, single/missing choices, queue replenishment, muted playback, cleanup

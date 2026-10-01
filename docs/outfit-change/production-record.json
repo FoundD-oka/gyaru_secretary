@@ -1,0 +1,167 @@
+{
+  "status": "complete_built_and_verified_live",
+  "provider": "Higgsfield",
+  "model": "Kling 3.0",
+  "source_images": [
+    {
+      "role": "empty",
+      "file": "docs/outfit-change/references/empty.png",
+      "sha256": "41e6632ccb0fbb0baac24c4fbd36ce74b383199051b10c8c5ccc2d4f3c630bcd",
+      "upload_id": "20758ac3-23b1-450a-97de-aafb11cb9dbd"
+    },
+    {
+      "role": "seated",
+      "file": "docs/outfit-change/references/seated.png",
+      "sha256": "bfe297491c7dfbf189eff8dd4ed6821361a8ba9b62bf0f763b17d266c935c756",
+      "upload_id": "317a1b10-872f-4453-a3fe-e583ccd76c2a"
+    },
+    {
+      "role": "note",
+      "file": "docs/outfit-change/references/note.png",
+      "sha256": "4f4df7d4f3fad380ec808913e5e53e638767b486a4afa5492f4ad9cf8aad39f1",
+      "upload_id": "8efb00ba-8618-4eca-b8ef-ccb45bdcffa2"
+    },
+    {
+      "role": "working",
+      "file": "docs/outfit-change/references/working.png",
+      "sha256": "1fac12b5d068b85ede2543a119e903960f5592267a695334d5c4a72643dac376",
+      "upload_id": "46728c27-57ce-4675-9e03-02f1837e81c9"
+    }
+  ],
+  "generated_videos": [
+    {
+      "role": "exit",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 10.041667,
+      "credits_displayed": 15,
+      "usage_recorded_at_jst": "2026-09-11 03:06",
+      "asset_id": "1e2225a3-a772-4cef-8751-c98fa3f84c46",
+      "file": "assets/outfit-exit.mp4",
+      "original": "assets/originals/outfit-change/outfit-exit.mp4",
+      "sha256": "10dcc0ab9dc5e642a6d1760fa899caef2fb32a71b302fb41cb6a52c6e84e3c21",
+      "visual_review": "Monitor glance, wide-eyed surprise, camera glare, stand and exit to screen right; no visible outfit change; ending matches the supplied empty reference."
+    },
+    {
+      "role": "return",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 10.041667,
+      "credits_displayed": 15,
+      "usage_recorded_at_jst": "2026-09-11 03:10",
+      "asset_id": "2cd11cca-81c5-400f-bd91-17cf527ec6b0",
+      "file": "assets/outfit-return.mp4",
+      "original": "assets/originals/outfit-change/outfit-return.mp4",
+      "sha256": "9defd8796dbf7f2067adcd464a14152ecce0521836f2690000674ad9b350f4b4",
+      "visual_review": "Woman enters from the right already in the supplied outfit, sits naturally and folds her arms. End pose matches the seated reference."
+    },
+    {
+      "role": "note",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 15.041667,
+      "credits_displayed": 22.5,
+      "usage_recorded_at_jst": "2026-09-11 03:15",
+      "asset_id": "1f6ab6fc-5853-4b55-9f14-da0a5996208f",
+      "file": "assets/outfit-note.mp4",
+      "original": "assets/originals/outfit-change/outfit-note.mp4",
+      "sha256": "d318149554ad41e3df8f38d1155cf254a32082a5e3f88374027bd1f463793c68",
+      "visual_review": "Picks up a yellow note and marker, visibly writes on the desk, then shows a readable handwritten message and red heart matching the supplied reference."
+    },
+    {
+      "role": "work",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 15.041667,
+      "credits_displayed": 22.5,
+      "usage_recorded_at_jst": "2026-09-11 03:16",
+      "asset_id": "eb78e67f-df44-45dd-bb70-589b49fb877c",
+      "file": "assets/outfit-work.mp4",
+      "original": "assets/originals/outfit-change/outfit-work.mp4",
+      "sha256": "c50efd671b5a62738c7387c4606b41f84ce90524bac5299fef87d9cb5be665eb",
+      "visual_review": "Lowers and puts down the note, turns to the monitor and works with the mouse and left-hand keystrokes. The requested keyboard input is visible; the generated motion does not use both hands together despite the more specific production prompt."
+    },
+    {
+      "role": "idle",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 15.041667,
+      "credits_displayed": 22.5,
+      "usage_recorded_at_jst": "2026-09-11 03:18",
+      "asset_id": "72814dd6-d716-4150-a2e1-7761c3e77986",
+      "file": "assets/outfit-idle.mp4",
+      "original": "assets/originals/outfit-change/outfit-idle.mp4",
+      "sha256": "17a014da8be9b099b61b127a928941a7717f2b8dd2537286733bd3fc5eade69f",
+      "visual_review": "Quiet monitor-focused idle with blinks and restrained mouse movements; start/end pose matches."
+    },
+    {
+      "role": "typing",
+      "status": "downloaded_and_reviewed",
+      "duration_seconds": 15.041667,
+      "credits_displayed": 22.5,
+      "usage_recorded_at_jst": "2026-09-11 03:19",
+      "asset_id": "4e335471-ba41-4150-a34d-b9fee95f10c4",
+      "file": "assets/outfit-typing.mp4",
+      "original": "assets/originals/outfit-change/outfit-typing.mp4",
+      "sha256": "a2c814cbee5fff181991d281d1cbbc5bf7b79456efab527cb68ba1d6c25fd40b",
+      "visual_review": "Moves right hand from mouse to keyboard, types with both hands, then returns right hand to mouse. Start/end pose matches."
+    }
+  ],
+  "settings": {
+    "resolution": "1080p",
+    "audio": false,
+    "enhance": false,
+    "multi_shot": false
+  },
+  "empty_interval": {
+    "file": "assets/outfit-empty.mp4",
+    "duration_seconds": 7,
+    "width": 1920,
+    "height": 1076,
+    "fps": 24,
+    "audio_streams": 0,
+    "sha256": "e0fc95d38506c140465429ec6eeba110d74686a6e6b8d4b324fd8082f1859e65"
+  },
+  "credits_charged_total": 120,
+  "usage_verified_at_jst": "2026-09-11 03:34",
+  "auto_publish_new_generations": false,
+  "absence_timing": {
+    "exit_last_visible_seconds_approx": 7.625,
+    "exit_playback_end": 10,
+    "inserted_empty_seconds": 7,
+    "return_first_visible_seconds_approx": 0.625,
+    "total_absence_seconds_approx": 10,
+    "evidence": "docs/outfit-change/review/absence-timing.jpg"
+  },
+  "runtime_manifest": "assets/outfit-change.json",
+  "verification": "docs/outfit-change/review/verification.json",
+  "preview": "docs/outfit-change/preview.mp4",
+  "native_ui_verification": {
+    "result": "passed",
+    "scope": "isolated test app using production media and fixed network reply",
+    "checked": [
+      "phrase triggers sequence",
+      "new outfit in return and note phases",
+      "reply withheld until performance completes",
+      "new outfit idle after completion",
+      "ordinary subsequent send uses new outfit typing",
+      "new chat restores original outfit and idle"
+    ],
+    "test_app_closed": true,
+    "production_app_restarted": true
+  },
+  "preview_sha256": "5194b45bd13f953a7375df733f378e684278533d91e6a85621fccbaad3e08b32",
+  "production_activation": {
+    "date": "2026-09-11",
+    "user_authorized_conversation_loss": true,
+    "application_rebuilt_and_restarted": true,
+    "bridge_restarted": true,
+    "bridge_health": "HTTP 200, ready=true",
+    "verification": "passed",
+    "scope": "actual production app and Gemini bridge, isolated application-window captures through Computer Use",
+    "checked": [
+      "trigger sent through actual chat",
+      "new-outfit return and note observed",
+      "reply pending during performance",
+      "successful Gemini reply after performance",
+      "new-outfit idle after completion",
+      "New Chat cleared verification conversation and restored original outfit"
+    ],
+    "final_state": "running with empty chat and original outfit"
+  }
+}

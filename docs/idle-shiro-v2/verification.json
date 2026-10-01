@@ -1,0 +1,181 @@
+{
+  "clips": [
+    {
+      "file": "idle-shiro-v2-coffee.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "948c376f4ebd90392bf91cd6d778ed39e81352b1e383f16248faf5bd6fed0ba6",
+      "decode": "passed"
+    },
+    {
+      "file": "idle-shiro-v2-mouse.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "f3a0c9f066c0418c0762eb5f772f0f4050d1e104260220cd843f63a0ef02efbb",
+      "decode": "passed"
+    },
+    {
+      "file": "idle-shiro-v2-phone.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "013ec097fcc2f2ec138b3937b635c9b09dfb3c7b019ef1a57b9caf2a1879d1df",
+      "decode": "passed"
+    },
+    {
+      "file": "typing-shiro-v2-annoyed.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "2dcdd87464f2a7829780e46defcf2bc914b011bde0580ed7ebe464f709989ed2",
+      "decode": "passed"
+    },
+    {
+      "file": "typing-shiro-v2-playful.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "2c65c37957087bd4d54b8b046e8a23e172c2a4f598d5af929f2ed81f575714a4",
+      "decode": "passed"
+    }
+  ],
+  "joins": [
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "idle-shiro-v2-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8199
+    },
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "idle-shiro-v2-mouse.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8159
+    },
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "idle-shiro-v2-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8191
+    },
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "typing-shiro-v2-annoyed.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8193
+    },
+    {
+      "from": "idle-shiro-v2-coffee.mp4",
+      "to": "typing-shiro-v2-playful.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8255
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "idle-shiro-v2-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8791
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "idle-shiro-v2-mouse.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8604
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "idle-shiro-v2-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8743
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "typing-shiro-v2-annoyed.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8751
+    },
+    {
+      "from": "idle-shiro-v2-mouse.mp4",
+      "to": "typing-shiro-v2-playful.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8794
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "idle-shiro-v2-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9009
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "idle-shiro-v2-mouse.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8968
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "idle-shiro-v2-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8951
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "typing-shiro-v2-annoyed.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.896
+    },
+    {
+      "from": "idle-shiro-v2-phone.mp4",
+      "to": "typing-shiro-v2-playful.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9042
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "idle-shiro-v2-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9393
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "idle-shiro-v2-mouse.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9302
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "idle-shiro-v2-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9349
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "typing-shiro-v2-annoyed.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.931
+    },
+    {
+      "from": "typing-shiro-v2-annoyed.mp4",
+      "to": "typing-shiro-v2-playful.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.9424
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "idle-shiro-v2-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8144
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "idle-shiro-v2-mouse.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.823
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "idle-shiro-v2-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8148
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "typing-shiro-v2-annoyed.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8166
+    },
+    {
+      "from": "typing-shiro-v2-playful.mp4",
+      "to": "typing-shiro-v2-playful.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8149
+    }
+  ]
+}

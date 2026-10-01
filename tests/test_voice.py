@@ -15,6 +15,20 @@ voice = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(voice)
 
 class VoiceTests(unittest.TestCase):
+    def test_outfit_context_is_explicit_text_only_and_preserves_legacy(self):
+        result = {'candidates': [{'content': {'parts': [{'text': 'はいよ！'}]}}]}
+        with patch.object(voice, 'api', return_value=result) as api, patch.object(voice, 'speak', return_value=b'audio'):
+            for state in ('changing', 'changed'):
+                voice.chat('着替えてきてよ', [], audio=False, outfit=state)
+                persona = api.call_args.args[1]['systemInstruction']['parts'][0]['text']
+                self.assertIn('接続済みの着替え動画', persona)
+                self.assertIn('AITuber', persona)
+                self.assertIn('検索、ファイル操作、送信は未接続', persona)
+            voice.chat('着替えてきてよ', [], audio=False)
+            self.assertNotIn('アプリからの衣装状態', api.call_args.args[1]['systemInstruction']['parts'][0]['text'])
+            voice.chat('着替えてきてよ', [], outfit='changed')
+            self.assertEqual(api.call_args.args[1]['systemInstruction']['parts'][0]['text'], voice.PERSONA)
+
     def test_text_chat_skips_audio_generation_and_keeps_context(self):
         answer = '確認できたよ。' * 150
         result = {'candidates': [{'content': {'parts': [{'text': answer}]}}]}
@@ -70,7 +84,8 @@ class VoiceTests(unittest.TestCase):
                      ({'Authorization': 'Bearer '+voice.TOKEN, 'Origin':'https://example.com'}, b'{"text":"hi"}', 403),
                      ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":""}', 400),
                      ({'Authorization': 'Bearer '+voice.TOKEN}, b'[]', 400),
-                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":"hi","audio":"false"}', 400)]
+                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":"hi","audio":"false"}', 400),
+                     ({'Authorization': 'Bearer '+voice.TOKEN}, b'{"text":"hi","outfit":"invented"}', 400)]
             with patch.object(voice, 'chat') as chat:
                 for headers, body, expected in cases:
                     req = urllib.request.Request(url+'/chat', data=body, headers=headers)

@@ -1,0 +1,81 @@
+{
+  "clips": [
+    {
+      "file": "idle-shiro-coffee.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "b43d9bd5879da83b526f41fa5ae255826f162bc50f4a928c06374df9b04de5b8",
+      "decode": "passed"
+    },
+    {
+      "file": "idle-shiro-phone.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "0a17323a13da02d08a30b7e566696958ace0383d2f56bba499a60ad506a61546",
+      "decode": "passed"
+    },
+    {
+      "file": "idle-shiro-wave.mp4",
+      "duration": 15.041667,
+      "fps": 24.0,
+      "width": 1920,
+      "height": 1076,
+      "audio_streams": 0,
+      "sha256": "bc259c510b1c2d94e63ffc2053aad6806c735afc3c6a857205c6ba91f656e41b",
+      "decode": "passed"
+    }
+  ],
+  "joins": [
+    {
+      "from": "idle-shiro-coffee.mp4",
+      "to": "idle-shiro-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.7853
+    },
+    {
+      "from": "idle-shiro-coffee.mp4",
+      "to": "idle-shiro-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.7857
+    },
+    {
+      "from": "idle-shiro-coffee.mp4",
+      "to": "idle-shiro-wave.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.7832
+    },
+    {
+      "from": "idle-shiro-phone.mp4",
+      "to": "idle-shiro-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8608
+    },
+    {
+      "from": "idle-shiro-phone.mp4",
+      "to": "idle-shiro-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8557
+    },
+    {
+      "from": "idle-shiro-phone.mp4",
+      "to": "idle-shiro-wave.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8511
+    },
+    {
+      "from": "idle-shiro-wave.mp4",
+      "to": "idle-shiro-coffee.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8384
+    },
+    {
+      "from": "idle-shiro-wave.mp4",
+      "to": "idle-shiro-phone.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8303
+    },
+    {
+      "from": "idle-shiro-wave.mp4",
+      "to": "idle-shiro-wave.mp4",
+      "mean_absolute_pixel_difference_0_255": 0.8234
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "sequence": [
+    {
+      "file": "outfit-exit.mp4",
+      "start": 0,
+      "end": 10,
+      "loop": false
+    },
+    {
+      "file": "outfit-empty.mp4",
+      "start": 0,
+      "end": 7,
+      "loop": false
+    },
+    {
+      "file": "outfit-return.mp4",
+      "start": 0,
+      "end": 10,
+      "loop": false
+    },
+    {
+      "file": "outfit-note.mp4",
+      "start": 0,
+      "end": 15,
+      "loop": false
+    },
+    {
+      "file": "outfit-work.mp4",
+      "start": 0,
+      "end": 15,
+      "loop": false
+    }
+  ],
+  "idle": [
+    {
+      "file": "outfit-idle.mp4",
+      "start": 0,
+      "end": 15,
+      "loop": true
+    }
+  ],
+  "typing": [
+    {
+      "file": "outfit-typing.mp4",
+      "start": 0,
+      "end": 15,
+      "loop": false
+    }
+  ]
+}

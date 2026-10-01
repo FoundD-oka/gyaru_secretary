@@ -78,13 +78,19 @@ def speak(text):
         wav.writeframes(raw)
     return output.getvalue()
 
-def chat(text, history, audio=True):
+def chat(text, history, audio=True, outfit=None):
     contents = []
     for entry in history[-12:]:
         if isinstance(entry, dict) and entry.get('role') in ('user', 'model') and isinstance(entry.get('text'), str):
             contents.append({'role': entry['role'], 'parts': [{'text': entry['text'][:2000]}]})
     contents.append({'role': 'user', 'parts': [{'text': text}]})
     persona = PERSONA if audio else PERSONA.replace('音声会話なので返答は原則1〜3文、150文字以内。', 'テキストチャットです。必要な詳しさで、読みやすく具体的に返答する。').replace('今は会話と画面のリアクションだけが使える。', '今はテキスト会話だけが使える。音声と画面のリアクションは休止中。')
+    if not audio and outfit in ('changing', 'changed'):
+        persona = persona.replace('今はテキスト会話だけが使える。音声と画面のリアクションは休止中。',
+            '今はテキスト会話と、アプリ内に接続済みの着替え動画だけが使える。音声とその他のリアクションは休止中。')
+        persona += '\nアプリからの衣装状態：画面内の衣装は青緑のAITuberシャツ、水色にピンクの水玉の上着、白いショートパンツ。着替えは用意済み動画の再生であり、現実の身体による行動ではない。衣装変更を不可能だと否定しない。自分で新しい衣装や別の動作を作成できるとは言わない。'
+        if outfit == 'changing':
+            persona += '\n今は着替え演出の再生中。この返答は演出終了後に表示される。ユーザーの依頼に短く自然に返し、再生成功を断定する実況や、まだ席を外しているという返答は避ける。'
     result = api(os.environ.get('GYARU_CHAT_MODEL', 'gemini-2.5-flash'), {
         'systemInstruction': {'parts': [{'text': persona}]}, 'contents': contents,
         'generationConfig': {'maxOutputTokens': 1024, 'thinkingConfig': {'thinkingBudget': 0}}
@@ -141,16 +147,19 @@ class Handler(BaseHTTPRequestHandler):
             text = body.get('text', '')
             history = body.get('history', [])
             audio = body.get('audio', True)
+            outfit = body.get('outfit')
             if not isinstance(text, str) or not text.strip() or len(text) > 2000 or not isinstance(history, list):
                 raise ValueError()
             if not isinstance(audio, bool):
+                raise ValueError()
+            if outfit is not None and outfit not in ('changing', 'changed'):
                 raise ValueError()
         except (ValueError, TypeError):
             return self.reply(400, {'error': 'Invalid request'})
         if not BUSY.acquire(blocking=False):
             return self.reply(429, {'error': '返答を準備中です。'})
         try:
-            self.reply(200, chat(text.strip(), history, audio=audio))
+            self.reply(200, chat(text.strip(), history, audio=audio, outfit=outfit))
         except RuntimeError as error:
             self.reply(502, {'error': str(error)})
         except Exception:
